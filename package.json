@@ -1,0 +1,22 @@
+{
+  "name": "x-node-gateway",
+  "version": "1.0.0",
+  "description": "node, gateway, graphql-for-frontends, grpc-for-services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && npm run copy-proto",
+    "copy-proto": "copyfiles -u 1 src/**/*.proto dist",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}
