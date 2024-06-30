@@ -1,23 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020" /* Specify ECMAScript target version */,
-    "module": "ESNext" /* Specify module code generation */,
-    "moduleResolution": "Node",
-    "strict": true /* Enable all strict type-checking options */,
-    "esModuleInterop": true /* Enables interoperability between CommonJS and ES Modules */,
-    "skipLibCheck": true /* Skip type checking of declaration files */,
-    "forceConsistentCasingInFileNames": true /* Ensure that casing is consistent in filenames */,
-    "outDir": "./dist" /* Redirect output structure to the directory */,
-    "resolveJsonModule": true /* Enable importing of JSON modules */,
-    "rootDir": "./src", /* Specify the root directory of input files. In our case, it's the 'src' directory. */
+    "rootDirs": ["src"],
+    "outDir": "dist",
+    "lib": ["es2020"],
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["node"],
     "experimentalDecorators": true, // Enables experimental support for decorators
-    "emitDecoratorMetadata": true, // Enables emitting design-type metadata for decorated declarations
-    "baseUrl": "./", // Base directory for resolving non-relative module names
-    "paths": {
-    }
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts", // Include TypeScript files under src directory
   ],
-  "exclude": ["node_modules"] // Exclude node_modules from compilation
+  "exclude": ["node_modules"] // Exc
 }
