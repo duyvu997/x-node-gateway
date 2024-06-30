@@ -1,13 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "target": "ES2020" /* Specify ECMAScript target version */,
+    "module": "ESNext" /* Specify module code generation */,
+    "moduleResolution": "Node",
+    "strict": true /* Enable all strict type-checking options */,
+    "esModuleInterop": true /* Enables interoperability between CommonJS and ES Modules */,
+    "skipLibCheck": true /* Skip type checking of declaration files */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is consistent in filenames */,
+    "outDir": "./dist" /* Redirect output structure to the directory */,
+    "resolveJsonModule": true /* Enable importing of JSON modules */,
+    "rootDir": "./src", /* Specify the root directory of input files. In our case, it's the 'src' directory. */
+    "experimentalDecorators": true, // Enables experimental support for decorators
+    "emitDecoratorMetadata": true, // Enables emitting design-type metadata for decorated declarations
+    "baseUrl": "./", // Base directory for resolving non-relative module names
+    "paths": {
+    }
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts", // Include TypeScript files under src directory
+  ],
+  "exclude": ["node_modules"] // Exclude node_modules from compilation
 }
