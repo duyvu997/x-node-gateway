@@ -14,5 +14,9 @@
   "include": [
     "src/**/*.ts", // Include TypeScript files under src directory
   ],
-  "exclude": ["node_modules"] // Exc
+  "exclude": [
+    "node_modules",
+    "**/*_pb.js",
+    "**/*_pb.d.ts"
+  ]
 }

@@ -1,26 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Path to this plugin
-PROTOC_GEN_TS_PATH="../../node_modules/.bin/protoc-gen-ts"
-# Path to the grpc_node_plugin
-PROTOC_GEN_GRPC_PATH="../../node_modules/.bin/grpc_tools_node_protoc_plugin"
+TS_OUT_DIR="./__protobuf_generated__"
+PROTOC="$(npm root)/.bin/grpc_tools_node_protoc"
+PROTOC_GEN_TS_PATH="$(npm root)/.bin/protoc-gen-ts"
+PROTOC_GEN_GRPC_PATH="$(npm root)/.bin/grpc_tools_node_protoc_plugin"
 
-# Directory to write generated code to (.js and .d.ts files)
-OUT_DIR="./__protobuf_generated__"
+mkdir -p $TS_OUT_DIR
 
-# List of .proto files to compile (adjust as needed)
-PROTO_FILES="./employee.proto"
-
-# Create output directory if it doesn't exist
-mkdir -p $OUT_DIR
-
-# Run protoc command for each .proto file
-for FILE in $PROTO_FILES; do
-  protoc \
-    --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
+$PROTOC \
+    -I="./" \
+    --plugin=protoc-gen-ts=$PROTOC_GEN_TS_PATH \
     --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH} \
-    --js_out="import_style=commonjs,binary:${OUT_DIR}" \
-    --ts_out="service=grpc-node:${OUT_DIR}" \
-    --grpc_out="${OUT_DIR}" \
-    $FILE
-done
+    --js_out=import_style=commonjs:$TS_OUT_DIR \
+    --grpc_out=grpc_js:$TS_OUT_DIR \
+    --ts_out=grpc_js:$TS_OUT_DIR \
+    ./**/*.proto
+
+
+
+    # --grpc_out=import_style=typescript,grpc_js:$TS_OUT_DIR \

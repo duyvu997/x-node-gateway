@@ -1,17 +1,19 @@
 type Query {
-  books: [Book]
+  employees: [Employee]
+  employee(id: ID!): Employee
 }
 
-type Book {
-  title: String
-  author: String
+type Employee {
+  id: ID!
+  name: String!
+  email: String!
 }
 
-type AddBookMutationResponse {
+type EmployeeMutationResponse {
   code: String!
   success: Boolean!
   message: String!
-  book: Book
+  employee: Employee
 }
 
 type LoginResponse {
@@ -19,6 +21,8 @@ type LoginResponse {
 }
 
 type Mutation {
-  addBook(title: String, author: String): AddBookMutationResponse
+  createEmployee(name: String!, email: String!): EmployeeMutationResponse
+  updateEmployee(id: ID!, name: String, email: String): EmployeeMutationResponse
+  deleteEmployee(id: ID!): EmployeeMutationResponse
   login(username: String!, password: String!): LoginResponse
 }

@@ -2,7 +2,7 @@
 
 syntax = "proto3";
 
-package employees;
+package employee;
 
 service EmployeeService {
   rpc GetEmployee(GetEmployeeRequest) returns (EmployeeResponse);
