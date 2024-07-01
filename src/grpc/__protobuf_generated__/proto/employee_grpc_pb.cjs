@@ -1,8 +1,5 @@
 // GENERATED CODE -- DO NOT EDIT!
 
-// Original file comments:
-// ./src/grpc/employee/proto/employee.proto
-//
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var proto_employee_pb = require('./employee_pb.cjs');
@@ -62,6 +59,28 @@ function deserialize_employee_GetEmployeeRequest(buffer_arg) {
   return proto_employee_pb.GetEmployeeRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_employee_GetEmployeesRequest(arg) {
+  if (!(arg instanceof proto_employee_pb.GetEmployeesRequest)) {
+    throw new Error('Expected argument of type employee.GetEmployeesRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_employee_GetEmployeesRequest(buffer_arg) {
+  return proto_employee_pb.GetEmployeesRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_employee_GetEmployeesResponse(arg) {
+  if (!(arg instanceof proto_employee_pb.GetEmployeesResponse)) {
+    throw new Error('Expected argument of type employee.GetEmployeesResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_employee_GetEmployeesResponse(buffer_arg) {
+  return proto_employee_pb.GetEmployeesResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_employee_UpdateEmployeeRequest(arg) {
   if (!(arg instanceof proto_employee_pb.UpdateEmployeeRequest)) {
     throw new Error('Expected argument of type employee.UpdateEmployeeRequest');
@@ -118,6 +137,17 @@ var EmployeeServiceService = exports.EmployeeServiceService = {
     requestDeserialize: deserialize_employee_DeleteEmployeeRequest,
     responseSerialize: serialize_employee_DeleteEmployeeResponse,
     responseDeserialize: deserialize_employee_DeleteEmployeeResponse,
+  },
+  getEmployees: {
+    path: '/employee.EmployeeService/GetEmployees',
+    requestStream: false,
+    responseStream: false,
+    requestType: proto_employee_pb.GetEmployeesRequest,
+    responseType: proto_employee_pb.GetEmployeesResponse,
+    requestSerialize: serialize_employee_GetEmployeesRequest,
+    requestDeserialize: deserialize_employee_GetEmployeesRequest,
+    responseSerialize: serialize_employee_GetEmployeesResponse,
+    responseDeserialize: deserialize_employee_GetEmployeesResponse,
   },
 };
 

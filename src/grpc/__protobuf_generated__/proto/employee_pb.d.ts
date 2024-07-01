@@ -143,3 +143,51 @@ export namespace DeleteEmployeeResponse {
         message: string,
     }
 }
+
+export class GetEmployeesRequest extends jspb.Message { 
+    getPage(): number;
+    setPage(value: number): GetEmployeesRequest;
+    getPagesize(): number;
+    setPagesize(value: number): GetEmployeesRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetEmployeesRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetEmployeesRequest): GetEmployeesRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetEmployeesRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetEmployeesRequest;
+    static deserializeBinaryFromReader(message: GetEmployeesRequest, reader: jspb.BinaryReader): GetEmployeesRequest;
+}
+
+export namespace GetEmployeesRequest {
+    export type AsObject = {
+        page: number,
+        pagesize: number,
+    }
+}
+
+export class GetEmployeesResponse extends jspb.Message { 
+    clearEmployeesList(): void;
+    getEmployeesList(): Array<EmployeeResponse>;
+    setEmployeesList(value: Array<EmployeeResponse>): GetEmployeesResponse;
+    addEmployees(value?: EmployeeResponse, index?: number): EmployeeResponse;
+    getTotal(): number;
+    setTotal(value: number): GetEmployeesResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GetEmployeesResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetEmployeesResponse): GetEmployeesResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GetEmployeesResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetEmployeesResponse;
+    static deserializeBinaryFromReader(message: GetEmployeesResponse, reader: jspb.BinaryReader): GetEmployeesResponse;
+}
+
+export namespace GetEmployeesResponse {
+    export type AsObject = {
+        employeesList: Array<EmployeeResponse.AsObject>,
+        total: number,
+    }
+}

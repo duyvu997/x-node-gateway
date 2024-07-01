@@ -12,6 +12,7 @@ interface IEmployeeServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
     createEmployee: IEmployeeServiceService_ICreateEmployee;
     updateEmployee: IEmployeeServiceService_IUpdateEmployee;
     deleteEmployee: IEmployeeServiceService_IDeleteEmployee;
+    getEmployees: IEmployeeServiceService_IGetEmployees;
 }
 
 interface IEmployeeServiceService_IGetEmployee extends grpc.MethodDefinition<proto_employee_pb.GetEmployeeRequest, proto_employee_pb.EmployeeResponse> {
@@ -50,6 +51,15 @@ interface IEmployeeServiceService_IDeleteEmployee extends grpc.MethodDefinition<
     responseSerialize: grpc.serialize<proto_employee_pb.DeleteEmployeeResponse>;
     responseDeserialize: grpc.deserialize<proto_employee_pb.DeleteEmployeeResponse>;
 }
+interface IEmployeeServiceService_IGetEmployees extends grpc.MethodDefinition<proto_employee_pb.GetEmployeesRequest, proto_employee_pb.GetEmployeesResponse> {
+    path: "/employee.EmployeeService/GetEmployees";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<proto_employee_pb.GetEmployeesRequest>;
+    requestDeserialize: grpc.deserialize<proto_employee_pb.GetEmployeesRequest>;
+    responseSerialize: grpc.serialize<proto_employee_pb.GetEmployeesResponse>;
+    responseDeserialize: grpc.deserialize<proto_employee_pb.GetEmployeesResponse>;
+}
 
 export const EmployeeServiceService: IEmployeeServiceService;
 
@@ -58,6 +68,7 @@ export interface IEmployeeServiceServer extends grpc.UntypedServiceImplementatio
     createEmployee: grpc.handleUnaryCall<proto_employee_pb.CreateEmployeeRequest, proto_employee_pb.EmployeeResponse>;
     updateEmployee: grpc.handleUnaryCall<proto_employee_pb.UpdateEmployeeRequest, proto_employee_pb.EmployeeResponse>;
     deleteEmployee: grpc.handleUnaryCall<proto_employee_pb.DeleteEmployeeRequest, proto_employee_pb.DeleteEmployeeResponse>;
+    getEmployees: grpc.handleUnaryCall<proto_employee_pb.GetEmployeesRequest, proto_employee_pb.GetEmployeesResponse>;
 }
 
 export interface IEmployeeServiceClient {
@@ -73,6 +84,9 @@ export interface IEmployeeServiceClient {
     deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
     deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
     deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
+    getEmployees(request: proto_employee_pb.GetEmployeesRequest, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
+    getEmployees(request: proto_employee_pb.GetEmployeesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
+    getEmployees(request: proto_employee_pb.GetEmployeesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class EmployeeServiceClient extends grpc.Client implements IEmployeeServiceClient {
@@ -89,4 +103,7 @@ export class EmployeeServiceClient extends grpc.Client implements IEmployeeServi
     public deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
     public deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
     public deleteEmployee(request: proto_employee_pb.DeleteEmployeeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.DeleteEmployeeResponse) => void): grpc.ClientUnaryCall;
+    public getEmployees(request: proto_employee_pb.GetEmployeesRequest, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
+    public getEmployees(request: proto_employee_pb.GetEmployeesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
+    public getEmployees(request: proto_employee_pb.GetEmployeesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: proto_employee_pb.GetEmployeesResponse) => void): grpc.ClientUnaryCall;
 }

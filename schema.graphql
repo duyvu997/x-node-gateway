@@ -1,5 +1,5 @@
 type Query {
-  employees: [Employee]
+  employees(page: Int, pageSize: Int): [Employee]
   employee(id: ID!): Employee
 }
 
