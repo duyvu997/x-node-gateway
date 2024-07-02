@@ -13,5 +13,8 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE,
   entities: [Employee, User],
   synchronize: true,
+  ssl: {
+    rejectUnauthorized: false, // For self-signed certificates
+  },
   // logging: true,
 });

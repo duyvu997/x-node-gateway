@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  nestjs-app:
+    image: nestjs-app  # Replace with your NestJS app image
+    ports:
+      - "50051:50051"  # Expose gRPC server port
+    networks:
+      - my-network
+
+  gateway:
+    image: gateway  # Replace with your gateway image
+    ports:
+      - "4000:4000"  # Expose gateway port
+    networks:
+      - my-network
+    depends_on:
+      - nestjs-app
+
+networks:
+  my-network:
+    driver: bridge

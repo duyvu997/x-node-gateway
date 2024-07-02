@@ -3,7 +3,7 @@ import * as EmployeeServiceClient from './__protobuf_generated__/proto/employee_
 import { credentials } from '@grpc/grpc-js';
 import pkg from './__protobuf_generated__/proto/employee_pb.cjs';
 
-const serverUrl = 'localhost:50051';
+const serverUrl = 'nestjs-app:50051';  // Service name defined in docker-compose.yml
 
 const client = new EmployeeServiceClient.EmployeeServiceClient(
   serverUrl,
