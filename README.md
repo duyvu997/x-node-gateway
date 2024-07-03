@@ -75,6 +75,14 @@ or just keep it's simple, run:
 npm run generate:grpc
 ```
 
+#### build docker image
+```bash
+docker build -t gateway .
+```
+```bash
+docker run -d -p 3000:3000 --env-file .env gateway
+```
+
 
 #### others 
 For more details on specific scripts and configurations, refer to package.json and other configuration files.
