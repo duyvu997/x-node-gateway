@@ -4,10 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "graphql-codegen --config codegen.ts",
-    "compile": "rm -rf ./dist && tsc && npm run copy-protobuf",
-    "start": "npm run compile && node ./dist/index.js",
-    "copy-protobuf": "copyfiles -u 1 src/grpc/__protobuf_generated__/**/* dist"
+    "generate:graphql": "graphql-codegen --config codegen.ts",
+    "generate:grpc": "cd src/grpc && ./generate-protobuf-ts.sh && ./rename-generated-files.sh",
+    "copy-protobuf": "copyfiles -u 1 src/grpc/__protobuf_generated__/**/* dist",
+    "compile": "rimraf ./dist && tsc -p .",
+    "build": "npm run generate:graphql && npm run generate:grpc && npm run compile && npm run copy-protobuf",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -35,10 +37,11 @@
     "@graphql-codegen/typescript-resolvers": "4.2.0",
     "@types/node": "^20.14.9",
     "copyfiles": "^2.4.1",
-    "protobufjs": "^7.3.2",
-    "ts-protoc-gen": "^0.15.0",
-    "typescript": "^5.5.2",
     "grpc_tools_node_protoc_ts": "^5.3.2",
-    "grpc-tools": "^1.11.2"
+    "grpc-tools": "^1.11.2",
+    "protobufjs": "^7.3.2",
+    "rimraf": "^5.0.7",
+    "ts-protoc-gen": "^0.15.0",
+    "typescript": "^5.5.2"
   }
 }

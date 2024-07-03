@@ -50,7 +50,7 @@ async function createEmployee(name: string, email: string) {
 
   try {
     const response = await new Promise((resolve, reject) => {
-      client.createEmployee(request, {}, (err, response) => {
+      client.createEmployee(request, {} as any, (err, response) => {
         if (err) {
           reject(err);
         } else {
@@ -74,7 +74,7 @@ async function updateEmployee(id: number, name: string, email: string) {
 
   try {
     const response = await new Promise((resolve, reject) => {
-      client.updateEmployee(request, {}, (err, response) => {
+      client.updateEmployee(request, {} as any, (err, response) => {
         if (err) {
           reject(err);
         } else {
@@ -96,7 +96,7 @@ async function deleteEmployee(employeeId: number) {
 
   try {
     const response = await new Promise((resolve, reject) => {
-      client.deleteEmployee(request, {}, (err, response) => {
+      client.deleteEmployee(request, {} as any, (err, response) => {
         if (err) {
           reject(err);
         } else {

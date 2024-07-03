@@ -1,6 +1,6 @@
 import { AppDataSource } from '../datasource/index.js';
 import { User } from '../datasource/entities/user.entity.js';
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export interface UserInterface {

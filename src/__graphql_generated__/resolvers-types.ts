@@ -81,6 +81,12 @@ export type QueryEmployeeArgs = {
 };
 
 
+export type QueryEmployeesArgs = {
+  page?: InputMaybe<Scalars['Int']['input']>;
+  pageSize?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
@@ -155,6 +161,7 @@ export type ResolversTypes = {
   Employee: ResolverTypeWrapper<Employee>;
   EmployeeMutationResponse: ResolverTypeWrapper<EmployeeMutationResponse>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
+  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   LoginResponse: ResolverTypeWrapper<LoginResponse>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
@@ -167,6 +174,7 @@ export type ResolversParentTypes = {
   Employee: Employee;
   EmployeeMutationResponse: EmployeeMutationResponse;
   ID: Scalars['ID']['output'];
+  Int: Scalars['Int']['output'];
   LoginResponse: LoginResponse;
   Mutation: {};
   Query: {};
@@ -202,7 +210,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   employee?: Resolver<Maybe<ResolversTypes['Employee']>, ParentType, ContextType, RequireFields<QueryEmployeeArgs, 'id'>>;
-  employees?: Resolver<Maybe<Array<Maybe<ResolversTypes['Employee']>>>, ParentType, ContextType>;
+  employees?: Resolver<Maybe<Array<Maybe<ResolversTypes['Employee']>>>, ParentType, ContextType, Partial<QueryEmployeesArgs>>;
 };
 
 export type Resolvers<ContextType = any> = {

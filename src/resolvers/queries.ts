@@ -1,4 +1,4 @@
-import { Employee, QueryResolvers } from '../__generated__/resolvers-types.js';
+import { Employee, QueryResolvers } from '../__graphql_generated__/resolvers-types.js';
 import { fetchEmployeeById, listEmployees } from '../grpc/employee-client.js';
 
 const queries: QueryResolvers = {

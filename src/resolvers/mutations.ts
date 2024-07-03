@@ -1,4 +1,4 @@
-import { Employee, MutationResolvers } from '../__generated__/resolvers-types';
+import { Employee, MutationResolvers } from '../__graphql_generated__/resolvers-types';
 import { createEmployee, deleteEmployee, updateEmployee } from '../grpc/employee-client.js';
 
 import { ApolloError } from 'apollo-server-errors';
